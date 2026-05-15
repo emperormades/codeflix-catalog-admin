@@ -1,8 +1,14 @@
 import pytest, re, unittest
+from faker import Faker
+
 from uuid import UUID, uuid4
 from category import Category
 
 class TestCategory(unittest.TestCase):
+    faker = Faker()
+    word = faker.word()
+    id = uuid4()
+
     def test_name_is_required(self):
         with pytest.raises(
             TypeError,
@@ -15,31 +21,29 @@ class TestCategory(unittest.TestCase):
             ValueError,
             match="Name must be less than 256 characters"
         ):
-            Category(name="a" * 256)
+            Category(name=self.word * 256)
 
 
     def test_category_must_be_created_with_id_as_uuid(self):
-        category = Category(name="test")
+        category = Category(name=self.faker.word())
         assert isinstance(category.id, UUID)
 
     def test_category_must_be_created_with_default_values(self):
-        category = Category(name="test")
-        assert category.name == "test"
+        category = Category(name=self.word)
+        assert category.name == self.word
         assert category.description == ""
         assert category.is_active == True
 
     def test_category_is_created_with_provided_values(self):
-        category = Category(name="Filme")
-        assert category.name == "Filme"
+        category = Category(name=self.word)
+        assert category.name == self.word
         assert category.is_active == True
 
     def test_Category_str_representation(self):
-        id = uuid4()
-        category = Category(id=id, name="Filme")
-        assert str(category) == f"Category(id={id}, name=Filme, description=, is_active=True)"
+        category = Category(id=self.id, name=self.word)
+        assert str(category) == f"Category(id={self.id}, name={self.word}, description=, is_active=True)"
 
 
     def test_Category_repr_representation(self):
-        id = uuid4()
-        category = Category(id=id, name="Filme")
-        assert repr(category) == f"Category(id={id}, name=Filme, description=, is_active=True)"
+        category = Category(id=self.id, name=self.word)
+        assert repr(category) == f"Category(id={self.id}, name={self.word}, description=, is_active=True)"

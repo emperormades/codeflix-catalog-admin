@@ -1,5 +1,12 @@
 {
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
   "python.testing.pytestEnabled": true,
   "python.testing.unittestEnabled": false,
-  "python.testing.pytestArgs": ["."]
+  "python.testing.cwd": "${workspaceFolder}",
+  "python.testing.pytestArgs": ["."],
+  "python.testing.autoTestDiscoverOnSaveEnabled": true,
+  "testing.automaticallyOpenTestResults": "openExplorerOnTestStart",
+  "testing.resultsView.layout": "treeLeft",
+  "testing.followRunningTest": true,
+  "testing.gutterEnabled": true
 }
