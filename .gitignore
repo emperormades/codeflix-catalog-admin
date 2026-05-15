@@ -1,0 +1,55 @@
+# Python & pytest caches
+__pycache__/
+.pytest_cache/
+
+# Byte-compiled / optimized
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# uv (keep uv.lock committed)
+.uv/
+
+# Testing / coverage
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+
+# Type checkers / linters
+.mypy_cache/
+.ruff_cache/
+.dmypy.json
+dmypy.json
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and local artifacts
+*.log
+*.stackdump
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE (uncomment if you do not share editor settings)
+# .vscode/
+.idea/
